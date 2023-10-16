@@ -1,0 +1,32 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://example.com/product.schema.json",
+  "title": "Base Event",
+  "description": "A base ",
+  "type": "object",
+  "properties": {
+    "detail-type": {
+      "description": "The event name. <product>.<objectType>.<action>",
+      "type": "string",
+      "enum": ["domain1.service1.event1"]
+    },
+    "detail": {
+      "type": "object",
+      "description": "Event specific data",
+      "properties": {
+        "data": {
+          "type": "object",
+          "description": "Event specific data is placed in the properties of this object.",
+          "properties": {
+            "id": {
+              "type": "string",
+              "description": "The unique identifier of the event."
+            }
+          }
+        }
+      }
+    },
+    "required": ["data"]
+  },
+  "required": ["detail-type", "source", "detail"]
+}
